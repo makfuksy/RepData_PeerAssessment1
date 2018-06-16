@@ -3,13 +3,13 @@ title: "Reproducible Research Project 1"
 author: "Gildas Wilfrid MAKAYA"
 date: "June 16, 2018"
 output:
-
   html_document: 
     fig_caption: yes
-keep_md:
-  true
-editor_options: 
-  chunk_output_type: inline
+    keep_md: yes
+    toc: yes
+  pdf_document: default
+keep_md: yes
+self_contained: no
 ---
 
 
@@ -34,7 +34,7 @@ The dataset is stored in a comma-separated-value (CSV) file and there are a tota
 ***
 Download and unzip data to obtain a csv file.
 
-```{r echo=TRUE, message=TRUE}
+```{r echo=TRUE}
 library(dplyr)
 library(data.table)
 library(ggplot2)
@@ -115,8 +115,6 @@ head(dataset1, 10)
 dataset2 <- read.csv("newActivityDataset.csv")
   Total_steps_taken_per_days2 <- dataset2 %>% select(steps, date) %>% group_by(date) %>% summarise(totalSteps=sum(steps))
   
-  
-  
   ggplot(Total_steps_taken_per_days2, aes(x = totalSteps)) + geom_histogram(fill = "blue", binwidth = 1000) + labs(title = "Daily Steps", x = "Steps", y = "Frequency")
   
   Mean_Median2 <- Total_steps_taken_per_days2 %>% summarise(Mean_Steps=mean(totalSteps), Median_Steps=median(totalSteps))
@@ -148,9 +146,7 @@ dataset2 <- data.table::fread(input = "activity.csv")
 2. Make a panel plot containing a time series plot (i.e. type="l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
 
 ```{r echo=TRUE, include=TRUE, fig.path="PA1_template_files/"}
- dataset2[is.na(steps), "steps"] <- dataset2[, c(lapply(.SD, median, na.rm = TRUE)), .SDcols = c("steps")]
+dataset2[is.na(steps), "steps"] <- dataset2[, c(lapply(.SD, median, na.rm = TRUE)), .SDcols = c("steps")]
   dataset2_intervall <- dataset2[, c(lapply(.SD, mean, na.rm = TRUE)), .SDcols = c("steps"), by = .(interval, `weekday or weekend`)]
-  
   ggplot(dataset2_intervall , aes(x = interval , y = steps, color=`weekday or weekend`)) + geom_line() + labs(title = "Avg.Daily Steps by Weektype", x = "Interval", y = "No. of Steps") + facet_wrap(~`weekday or weekend` , ncol = 1, nrow=2)
-
-  ```
+```
