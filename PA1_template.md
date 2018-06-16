@@ -196,4 +196,4 @@ dataset2 <- data.table::fread(input = "activity.csv")
   ggplot(dataset2_intervall , aes(x = interval , y = steps, color=`weekday or weekend`)) + geom_line() + labs(title = "Avg.Daily Steps by Weektype", x = "Interval", y = "No. of Steps") + facet_wrap(~`weekday or weekend` , ncol = 1, nrow=2)
 ```
 
-![](/makfuksy/RepData_PeerAssessment1/blob/master/PA1_template_files/figure-markdown_github/unnamed-chunk-13-1.png)
+![](/tree/master/PA1_template_files/figure-markdown_github/unnamed-chunk-13-1.png)
