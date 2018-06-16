@@ -142,6 +142,25 @@ $(document).ready(function () {
 <h2>Loading and preprocessing the data</h2>
 <hr />
 <p>Download and unzip data to obtain a csv file.</p>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: 'dplyr'</code></pre>
+<pre><code>## The following objects are masked from 'package:stats':
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(data.table)</code></pre>
+<pre><code>## 
+## Attaching package: 'data.table'</code></pre>
+<pre><code>## The following objects are masked from 'package:dplyr':
+## 
+##     between, first, last</code></pre>
+<pre class="r"><code>library(ggplot2)
+
+download.file(url = &quot;https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip&quot;, destfile = &quot;activity.zip&quot;)
+unzip(zipfile = &quot;activity.zip&quot;)</code></pre>
 <div id="loading-data" class="section level3">
 <h3>Loading data</h3>
 <pre class="r"><code>dataset1 &lt;- read.csv(&quot;activity.csv&quot;)</code></pre>
