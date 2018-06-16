@@ -59,7 +59,7 @@ ggplot(Total_steps_taken_per_days1, aes(x = totalSteps)) +
 
     ## Warning: Removed 8 rows containing non-finite values (stat_bin).
 
-![](PA1_template_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![Daily Steps](./PA1_template_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
 1.  Calculate and report the mean and median of the total number of steps taken per day
 
@@ -83,7 +83,7 @@ day_averaged_data <- na.omit(dataset1) %>% group_by(interval) %>% summarise(Mean
 ggplot(day_averaged_data, aes(x=interval, y=MeanSteps)) + geom_line(color="red", size=1) + labs(title="Avarage Daily Steps", x="Interval", y="Average steps per day")
 ```
 
-![](PA1_template_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](./PA1_template_files/figure-markdown_github/unnamed-chunk-6-1.png)
 
 1.  Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -144,7 +144,7 @@ dataset2 <- read.csv("newActivityDataset.csv")
   ggplot(Total_steps_taken_per_days2, aes(x = totalSteps)) + geom_histogram(fill = "blue", binwidth = 1000) + labs(title = "Daily Steps", x = "Steps", y = "Frequency")
 ```
 
-![](PA1_template_files/figure-markdown_github/unnamed-chunk-11-1.png)
+![](./PA1_template_files/figure-markdown_github/unnamed-chunk-11-1.png)
 
 ``` r
   Mean_Median2 <- Total_steps_taken_per_days2 %>% summarise(Mean_Steps=mean(totalSteps), Median_Steps=median(totalSteps))
@@ -196,4 +196,4 @@ dataset2 <- data.table::fread(input = "activity.csv")
   ggplot(dataset2_intervall , aes(x = interval , y = steps, color=`weekday or weekend`)) + geom_line() + labs(title = "Avg.Daily Steps by Weektype", x = "Interval", y = "No. of Steps") + facet_wrap(~`weekday or weekend` , ncol = 1, nrow=2)
 ```
 
-![](PA1_template_files/figure-markdown_github/unnamed-chunk-13-1.png)
+![](./PA1_template_files/figure-markdown_github/unnamed-chunk-13-1.png)
