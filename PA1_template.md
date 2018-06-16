@@ -59,7 +59,7 @@ ggplot(Total_steps_taken_per_days1, aes(x = totalSteps)) +
 
     ## Warning: Removed 8 rows containing non-finite values (stat_bin).
 
-![Daily Steps](./PA1_template_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![Daily Steps](./tree/master/PA1_template_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
 1.  Calculate and report the mean and median of the total number of steps taken per day
 
@@ -196,4 +196,4 @@ dataset2 <- data.table::fread(input = "activity.csv")
   ggplot(dataset2_intervall , aes(x = interval , y = steps, color=`weekday or weekend`)) + geom_line() + labs(title = "Avg.Daily Steps by Weektype", x = "Interval", y = "No. of Steps") + facet_wrap(~`weekday or weekend` , ncol = 1, nrow=2)
 ```
 
-![](/tree/master/PA1_template_files/figure-markdown_github/unnamed-chunk-13-1.png)
+![](./tree/master/PA1_template_files/figure-markdown_github/unnamed-chunk-13-1.png)
